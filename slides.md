@@ -1,9 +1,6 @@
 ---
 # try also 'default' to start simple
-theme: seriph
-# random image from a curated Unsplash collection by Anthony
-# like them? see https://unsplash.com/collections/94734566/slidev
-background: https://source.unsplash.com/collection/94734566/1920x1080
+theme: unicorn
 # apply any windi css classes to the current slide
 class: 'text-center'
 # https://sli.dev/custom/highlighters.html
@@ -23,161 +20,231 @@ drawings:
 css: unocss
 ---
 
-# Welcome to Slidev
+# マークダウンの活用事例と書き方
 
-Presentation slides for developers
-
-<div class="pt-12">
-  <span @click="$slidev.nav.next" class="px-2 py-1 rounded cursor-pointer" hover="bg-white bg-opacity-10">
-    Press Space for next page <carbon:arrow-right class="inline"/>
-  </span>
-</div>
-
-<div class="abs-br m-6 flex gap-2">
-  <button @click="$slidev.nav.openInEditor()" title="Open in Editor" class="text-xl icon-btn opacity-50 !border-none !hover:text-white">
-    <carbon:edit />
-  </button>
-  <a href="https://github.com/slidevjs/slidev" target="_blank" alt="GitHub"
-    class="text-xl icon-btn opacity-50 !border-none !hover:text-white">
-    <carbon-logo-github />
-  </a>
-</div>
+〜 LightningTalk 12/1 〜
 
 <!--
-The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
+それではマークダウンの活用事例について話していきます
 -->
 
 ---
+class: 'text-center'
+---
 
-# What is Slidev?
 
-Slidev is a slides maker and presenter designed for developers, consist of the following features
+# マークダウンとは？
 
-- 📝 **Text-based** - focus on the content with Markdown, and then style them later
-- 🎨 **Themable** - theme can be shared and used with npm packages
-- 🧑‍💻 **Developer Friendly** - code highlighting, live coding with autocompletion
-- 🤹 **Interactive** - embedding Vue components to enhance your expressions
-- 🎥 **Recording** - built-in recording and camera view
-- 📤 **Portable** - export into PDF, PNGs, or even a hostable SPA
-- 🛠 **Hackable** - anything possible on a webpage
+---
+class: 'text-center'
+---
 
-<br>
-<br>
+# マークダウンとは文章を書くときの**記法**の一種です。
 
-Read more about [Why Slidev?](https://sli.dev/guide/why)
+<br><br>
+マークダウンを使うことで、**HTML**を簡単な記述方法で書くことができます。
 
-<!--
-You can have `style` tag in markdown to override the style for the current page.
-Learn more: https://sli.dev/guide/syntax#embedded-styles
--->
 
 <style>
-h1 {
-  background-color: #2B90B6;
-  background-image: linear-gradient(45deg, #4EC5D4 10%, #146b8c 20%);
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
+p {
+  font-size: 1.4rem;
+}
+strong {
+  color: #fff !important;
 }
 </style>
 
 <!--
-Here is another comment.
+マークダウンとは、文章を書くときの記法の一種です。マークダウンを使って書かれた文章は、エディタやビルドツールなどでHTMLに変換がされます。
+HTMLはタグがたくさんあり書き方を覚えるまでのハードルが高いですが、マークダウンはそれが簡略化されていて、覚えやすく使いやすいです。
+エンジニアであってもなくても手軽にHTMLが簡単に書けるため、世の中の様々なWebサービスにてマークダウンは活用されています。
 -->
-
----
-
-# Navigation
-
-Hover on the bottom-left corner to see the navigation's controls panel, [learn more](https://sli.dev/guide/navigation.html)
-
-### Keyboard Shortcuts
-
-|     |     |
-| --- | --- |
-| <kbd>right</kbd> / <kbd>space</kbd>| next animation or slide |
-| <kbd>left</kbd>  / <kbd>shift</kbd><kbd>space</kbd> | previous animation or slide |
-| <kbd>up</kbd> | previous slide |
-| <kbd>down</kbd> | next slide |
-
-<!-- https://sli.dev/guide/animations.html#click-animations -->
-<img
-  v-click
-  class="absolute -bottom-9 -left-7 w-80 opacity-50"
-  src="https://sli.dev/assets/arrow-bottom-left.svg"
-/>
-<p v-after class="absolute bottom-23 left-45 opacity-30 transform -rotate-10">Here!</p>
 
 ---
 layout: image-right
-image: https://source.unsplash.com/collection/94734566/1920x1080
+image: /images/react.png
 ---
+活用事例①
+# ドキュメント
 
-# Code
+ソフトやプログラム、ライブラリにはREADMEと呼ばれるドキュメントをつけておくことが慣習となっており、そのドキュメントは多くの場合マークダウン形式で書かれています。
+<br>また、社内ではあまり見かけない気もしますが、設計書、仕様書やWikiなど、多くのドキュメントに使われるようです。
 
-Use code snippets and get the highlighting directly![^1]
+- ReactのREADME.md冒頭
 
-```ts {all|2|1-6|9|all}
-interface User {
-  id: number
-  firstName: string
-  lastName: string
-  role: string
-}
+```markdown
+# [React](https://reactjs.org/) &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/facebook/react/blob/main/LICENSE) [![npm version](https://img.shields.io/npm/v/react.svg?style=flat)](https://www.npmjs.com/package/react) [![CircleCI Status](https://circleci.com/gh/facebook/react.svg?style=shield&circle-token=:circle-token)](https://circleci.com/gh/facebook/react) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://reactjs.org/docs/how-to-contribute.html#your-first-pull-request)
 
-function updateUser(id: number, update: User) {
-  const user = getUser(id)
-  const newUser = { ...user, ...update }
-  saveUser(id, newUser)
-}
+React is a JavaScript library for building user interfaces.
+
+* **Declarative:** React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes. Declarative views make your code more predictable, simpler to understand, and easier to debug.
+* **Component-Based:** Build encapsulated components that manage their own state, then compose them to make complex UIs. Since component logic is written in JavaScript instead of templates, you can easily pass rich data through your app and keep the state out of the DOM.
+* **Learn Once, Write Anywhere:** We don't make assumptions about the rest of your technology stack, so you can develop new features in React without rewriting existing code. React can also render on the server using Node and power mobile apps using [React Native](https://reactnative.dev/).
+
+[Learn how to use React in your project](https://reactjs.org/docs/getting-started.html).
+
 ```
 
-<arrow v-click="3" x1="400" y1="420" x2="230" y2="330" color="#564" width="3" arrowSize="1" />
+<style>
+  p {
+    margin-top: .25rem !important;
+  }
+</style>
 
-[^1]: [Learn More](https://sli.dev/guide/syntax.html#line-highlighting)
+
+---
+layout: image-left
+image: /images/backlog.png
+---
+活用事例②
+# コミュニケーション<br>ツール
+
+よく社内で使われているBacklogやSlackですが、これらのツールでもサービス全体の様々なテキストエディタの箇所でマークダウン記法を使うことができます。
+
+- BacklogのWiki
+```markdown
+# BacklogのWikiへようこそ！
+Wikiを利用することで複数のユーザーでドキュメントを編集し、記録を残していくことができます。
+プロジェクトの概要や必要な情報をWikiの最初のページにまとめておけば、新しいメンバーがスムーズにプロジェクトに参加できるようになるでしょう。
+
+以下のようなドキュメントを作ってみましょう！
+
+入門サイト、[サル先生の Wiki 入門 〜チームの情報を共有しよう〜](https://backlog.com/ja/wiki-guide/)では、Wiki についての一般的な知識と、実業務で使うための操作方法を学ぶことができます。
+
+```
 
 <style>
-.footnotes-sep {
-  @apply mt-20 opacity-10;
-}
-.footnotes {
-  @apply text-sm opacity-75;
-}
-.footnote-backref {
-  display: none;
-}
+  p {
+    margin-top: .5rem !important;
+  }
+</style>
+
+
+<!-- 一つ目のドキュメントの事例とほぼ言っていることは一緒ですが、皆さんに馴染みの深いものであるため、あえて分けてご紹介させていただきました。Backlog、Slackのテキストエディタはアイコンでテキストをリンクにしたり太字にしたりできますが、マークダウンで書いても同じことができるようになっています。 　-->
+
+---
+layout: image-right
+image: /images/slidev.png
+---
+活用事例③
+# スライド作成ツール
+マークダウンを用いたスライド作成ツールは近年たくさん開発がされていて、最も有名なものに[reavel.js](https://revealjs.com/)があり、[Marp](https://marp.app/)や[MarkdownPreviewEnhanced](https://shd101wyy.github.io/markdown-preview-enhanced/#/ja-jp/)、このスライドを作るのに使っている[Slidev](https://sli.dev/)などがあります。
+![](images/slides_md.png)
+
+<style>
+  p {
+    margin-top: .5rem !important;
+  }
+  img {
+    margin-top: 2rem !important;
+  }
 </style>
 
 ---
+layout: image-left
+image: /images/astro.png
+---
+活用事例④
+# ブログ
 
-# Components
+マークダウンの記法はブログの記事を書く際にもよく用いられます。はてなブログやWordPressでももちろん使えますし、techlabで使用しているGhostというCMSでも使えます。<br>
+また最近では、AstroやGatsbyといったマークダウンファイル（.md）をビルド時にHTMLに変換し、静的HTMLを吐き出す静的サイトジェネレーターも増えてきました。
+![](images/ssg.png)
+
+
+<style>
+  p {
+    margin-top: .25rem !important;
+  }
+  img {
+    margin-top: 1rem !important;
+  }
+</style>
+
+<!-- 一つ目のドキュメントの事例とほぼ言っていることは一緒ですが、皆さんに馴染みの深いものであるため、あえて分けてご紹介させていただきました。Backlog、Slackのテキストエディタはアイコンでテキストをリンクにしたり太字にしたりできますが、マークダウンで書いても同じことができるようになっています。 　-->
+
+---
+layout: image-right
+image: /images/todos.png
+---
+活用事例⑤
+# メモ
+
+自分用やちょっとした会議のメモとしても、文章のフォーマットを揃えられたり、エディタの機能を使えばTODOリストが簡単にできたり、リンク付きで文章を管理できたりと意外と便利だったりします。
+
+```markdown
+# メモ
+
+## TODO
+
+- [ ] 掃除
+- [ ] 洗濯
+- [ ] 皿洗い
+- [X] ~~*[ブログチェック](https://tech-lab.hakuhodo-ms.com/)*~~ [2022-12-01]
+```
+
+<style>
+  p {
+    margin-top: .5rem !important;
+  }
+  img {
+    margin-top: 2rem !important;
+  }
+</style>
+
+
+---
+class: 'text-center'
+---
+
+
+# でも使いこなすの難しそう...
+<div v-click>
+<p class="mt-5 text-xl text-orange-400">簡単です!</p>
+</div>
+
+---
+class: 'text-center'
+---
+
+# マークダウンの書き方
+
+---
+
+# 見出し
+h1〜h6まで書くことができます。
 
 <div grid="~ cols-2 gap-4">
 <div>
 
-You can use Vue components directly inside your slides.
+```markdown
+# 見出し1
 
-We have provided a few built-in components like `<Tweet/>` and `<Youtube/>` that you can use directly. And adding your custom components is also super easy.
+## 見出し2
 
-```html
-<Counter :count="10" />
+### 見出し3
+
+#### 見出し4
+
+##### 見出し5
+
+###### 見出し6
+
 ```
-
-<!-- ./components/Counter.vue -->
-<Counter :count="10" m="t-4" />
-
-Check out [the guides](https://sli.dev/builtin/components.html) for more.
-
 </div>
 <div>
 
-```html
-<Tweet id="1390115482657726468" />
-```
+# 見出し1
 
-<Tweet id="1390115482657726468" scale="0.65" />
+## 見出し2
+
+### 見出し3
+
+#### 見出し4
+
+##### 見出し5
+
+###### 見出し6
 
 </div>
 </div>
@@ -192,212 +259,325 @@ Also, HTML elements are valid:
 </div>
 -->
 
-
----
-class: px-20
 ---
 
-# Themes
+# 箇条書きリスト
 
-Slidev comes with powerful theming support. Themes can provide styles, layouts, components, or even configurations for tools. Switching between themes by just **one edit** in your frontmatter:
+ネストすることもできます。
 
-<div grid="~ cols-2 gap-2" m="-t-2">
+<div grid="~ cols-2 gap-4">
+<div>
 
-```yaml
----
-theme: default
----
+```markdown
+- item1
+- item2
+  - item2-1
+  - item2-2
+
 ```
+</div>
+<div>
 
-```yaml
----
-theme: seriph
----
-```
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-default/01.png?raw=true">
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-seriph/01.png?raw=true">
+- item1
+- item2
+  - item2-1
+  - item2-2
 
 </div>
-
-Read more about [How to use a theme](https://sli.dev/themes/use.html) and
-check out the [Awesome Themes Gallery](https://sli.dev/themes/gallery.html).
-
----
-preload: false
----
-
-# Animations
-
-Animations are powered by [@vueuse/motion](https://motion.vueuse.org/).
+</div>
 
 ```html
-<div
-  v-motion
-  :initial="{ x: -80 }"
-  :enter="{ x: 0 }">
-  Slidev
-</div>
+<ul>
+  <li>
+    item1
+  </li>
+  <li>
+    item2
+    <ul>
+      <li>item2-1</li>
+      <li>item2-2</li>
+    </ul>
+  </li>
+</ul>
 ```
+このように変換されます。
 
-<div class="w-60 relative mt-6">
-  <div class="relative w-40 h-40">
-    <img
-      v-motion
-      :initial="{ x: 800, y: -100, scale: 1.5, rotate: -50 }"
-      :enter="final"
-      class="absolute top-0 left-0 right-0 bottom-0"
-      src="https://sli.dev/logo-square.png"
-    />
-    <img
-      v-motion
-      :initial="{ y: 500, x: -100, scale: 2 }"
-      :enter="final"
-      class="absolute top-0 left-0 right-0 bottom-0"
-      src="https://sli.dev/logo-circle.png"
-    />
-    <img
-      v-motion
-      :initial="{ x: 600, y: 400, scale: 2, rotate: 100 }"
-      :enter="final"
-      class="absolute top-0 left-0 right-0 bottom-0"
-      src="https://sli.dev/logo-triangle.png"
-    />
-  </div>
 
-  <div
-    class="text-5xl absolute top-14 left-40 text-[#2B90B6] -z-1"
-    v-motion
-    :initial="{ x: -80, opacity: 0}"
-    :enter="{ x: 0, opacity: 1, transition: { delay: 2000, duration: 1000 } }">
-    Slidev
-  </div>
+<!--
+Presenter note with **bold**, *italic*, and ~~striked~~ text.
+
+Also, HTML elements are valid:
+<div class="flex w-full">
+  <span style="flex-grow: 1;">Left content</span>
+  <span>Right content</span>
 </div>
+-->
 
-<!-- vue script setup scripts can be directly used in markdown, and will only affects current page -->
-<script setup lang="ts">
-const final = {
-  x: 0,
-  y: 0,
-  rotate: 0,
-  scale: 1,
-  transition: {
-    type: 'spring',
-    damping: 10,
-    stiffness: 20,
-    mass: 2
-  }
-}
-</script>
-
-<div
-  v-motion
-  :initial="{ x:35, y: 40, opacity: 0}"
-  :enter="{ y: 0, opacity: 1, transition: { delay: 3500 } }">
-
-[Learn More](https://sli.dev/guide/animations.html#motion)
-
-</div>
 
 ---
 
-# LaTeX
+# 番号付きリスト
 
-LaTeX is supported out-of-box powered by [KaTeX](https://katex.org/).
+<div grid="~ cols-2 gap-4">
+<div>
 
-<br>
+```markdown
+1. meal
+1. drink
+  1. beer
+  1. water
+1. sweets
 
-Inline $\sqrt{3x-1}+(1+x)^2$
-
-Block
-$$
-\begin{array}{c}
-
-\nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{\partial t} &
-= \frac{4\pi}{c}\vec{\mathbf{j}}    \nabla \cdot \vec{\mathbf{E}} & = 4 \pi \rho \\
-
-\nabla \times \vec{\mathbf{E}}\, +\, \frac1c\, \frac{\partial\vec{\mathbf{B}}}{\partial t} & = \vec{\mathbf{0}} \\
-
-\nabla \cdot \vec{\mathbf{B}} & = 0
-
-\end{array}
-$$
-
-<br>
-
-[Learn more](https://sli.dev/guide/syntax#latex)
-
----
-
-# Diagrams
-
-You can create diagrams / graphs from textual descriptions, directly in your Markdown.
-
-<div class="grid grid-cols-3 gap-10 pt-4 -mb-6">
-
-```mermaid {scale: 0.5}
-sequenceDiagram
-    Alice->John: Hello John, how are you?
-    Note over Alice,John: A typical interaction
 ```
+</div>
+<div>
 
-```mermaid {theme: 'neutral', scale: 0.8}
-graph TD
-B[Text] --> C{Decision}
-C -->|One| D[Result 1]
-C -->|Two| E[Result 2]
-```
-
-```plantuml {scale: 0.7}
-@startuml
-
-package "Some Group" {
-  HTTP - [First Component]
-  [Another Component]
-}
-
-node "Other Groups" {
-  FTP - [Second Component]
-  [First Component] --> FTP
-}
-
-cloud {
-  [Example 1]
-}
-
-
-database "MySql" {
-  folder "This is my folder" {
-    [Folder 3]
-  }
-  frame "Foo" {
-    [Frame 4]
-  }
-}
-
-
-[Another Component] --> [Example 1]
-[Example 1] --> [Folder 3]
-[Folder 3] --> [Frame 4]
-
-@enduml
-```
+1. meal
+2. drink
+   1. beer
+   2. water
+3. sweets
 
 </div>
+</div>
 
-[Learn More](https://sli.dev/guide/syntax.html#diagrams)
+```html
+<ol>
+  <li>
+    meal
+  </li>
+  <li>
+    drink
+    <ol>
+      <li>beer</li>
+      <li>water</li>
+    </ol>
+  </li>
+  <li>
+    sweets
+  </li>
+</ol>
+```
+このように変換されます。
+
+
+<!--
+Presenter note with **bold**, *italic*, and ~~striked~~ text.
+
+Also, HTML elements are valid:
+<div class="flex w-full">
+  <span style="flex-grow: 1;">Left content</span>
+  <span>Right content</span>
+</div>
+-->
 
 ---
-src: ./pages/multiple-entries.md
-hide: false
+
+# 引用
+
+<div grid="~ cols-2 gap-4">
+<div>
+
+```markdown
+>　引用です。
+>
+> まだ引用です。
+>> 引用の中の引用です。
+
+```
+</div>
+<div>
+
+>　引用です。
+>
+> まだ引用です。
+>> 引用の中の引用です。
+
+</div>
+</div>
+
+```html
+<blockquote>
+  <p>引用です。</p>
+  <p>まだ引用です。</p>
+  <blockquote>
+    <p>引用の中の引用です。</p>
+  </blockquote>
+</blockquote>
+```
+このように変換されます。
+
+
+<!--
+Presenter note with **bold**, *italic*, and ~~striked~~ text.
+
+Also, HTML elements are valid:
+<div class="flex w-full">
+  <span style="flex-grow: 1;">Left content</span>
+  <span>Right content</span>
+</div>
+-->
+
 ---
+
+# 画像
+
+<div grid="~ cols-2 gap-4">
+<div>
+
+```markdown
+![ダミー画像](https://placehold.jp/150×150.png)
+
+```
+</div>
+<div>
+
+![ダミー画像](https://placehold.jp/150×150.png)
+
+</div>
+</div>
+
+```html
+<p>
+  <img src="https://placehold.jp/150%C3%97150.png" alt="ダミー画像">
+</p>
+```
+このように変換されます。
+
+
+<!--
+Presenter note with **bold**, *italic*, and ~~striked~~ text.
+
+Also, HTML elements are valid:
+<div class="flex w-full">
+  <span style="flex-grow: 1;">Left content</span>
+  <span>Right content</span>
+</div>
+-->
+
+---
+
+# 文字の装飾
+
+<div grid="~ cols-2 gap-4">
+<div>
+
+```markdown
+*斜体*です
+
+**太字**です
+
+***斜体かつ太字***です
+
+~~訂正線~~です
+
+```
+</div>
+<div>
+
+*斜体*です
+
+**太字**です
+
+***斜体かつ太字***です
+
+~~訂正線~~です
+
+</div>
+</div>
+
+```html
+<p>
+  <em>斜体</em>です
+</p>
+<p>
+  <strong>太字</strong>です
+</p>
+<p>
+  <em><strong>斜体かつ太字</strong></em>です
+</p>
+<p>
+  <s>訂正線</s>です
+</p>
+```
+このように変換されます。
+
+
+<!--
+Presenter note with **bold**, *italic*, and ~~striked~~ text.
+
+Also, HTML elements are valid:
+<div class="flex w-full">
+  <span style="flex-grow: 1;">Left content</span>
+  <span>Right content</span>
+</div>
+-->
+---
+
+# テーブル
+
+<div grid="~ cols-2 gap-4">
+<div>
+
+```markdown
+name | age
+-|-
+bob | 15
+```
+</div>
+<div>
+
+name | age
+-|-
+bob | 15
+
+</div>
+</div>
+
+```html
+<table>
+  <thead>
+    <tr>
+      <th>name</th>
+      <th>age</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>bob</td>
+      <td>15</td>
+    </tr>
+  </tbody>
+</table>
+```
+このように変換されます。
+
+
+<!--
+Presenter note with **bold**, *italic*, and ~~striked~~ text.
+
+Also, HTML elements are valid:
+<div class="flex w-full">
+  <span style="flex-grow: 1;">Left content</span>
+  <span>Right content</span>
+</div>
+-->
+
+
+---
+class: 'text-center -translate-y-10'
+---
+
+# こちらのYoutube動画もおすすめです
+
+<div>
+  <Youtube id="tjygVZLLeYc" class="mx-auto scale-150 translate-y-10" />
+</div>
+
 
 ---
 layout: center
 class: text-center
 ---
 
-# Learn More
-
-[Documentations](https://sli.dev) · [GitHub](https://github.com/slidevjs/slidev) · [Showcases](https://sli.dev/showcases.html)
+# ありがとうございました。

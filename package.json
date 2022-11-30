@@ -8,7 +8,12 @@
   },
   "dependencies": {
     "@slidev/cli": "^0.37.1",
+    "@slidev/theme-bricks": "^0.0.2",
     "@slidev/theme-default": "*",
-    "@slidev/theme-seriph": "*"
+    "@slidev/theme-seriph": "*",
+    "slidev-theme-unicorn": "^1.1.1"
+  },
+  "devDependencies": {
+    "playwright-chromium": "^1.28.1"
   }
 }
