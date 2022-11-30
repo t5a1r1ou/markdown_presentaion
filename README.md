@@ -1,5 +1,10 @@
-# Welcome to [Slidev](https://github.com/slidevjs/slidev)!
+# 「マークダウンの活用事例と書き方」
 
+ライトニングトーク用資料です。
+
+[Slidev](https://github.com/slidevjs/slidev)で作っています。
+
+## Slidev
 To start the slide show:
 
 - `npm install`

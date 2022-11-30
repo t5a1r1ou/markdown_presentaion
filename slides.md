@@ -9,13 +9,10 @@ highlighter: shiki
 lineNumbers: false
 # some information about the slides, markdown enabled
 info: |
-  ## Slidev Starter Template
-  Presentation slides for developers.
-
-  Learn more at [Sli.dev](https://sli.dev)
+  ライトニングトーク12/1資料
 # persist drawings in exports and build
 drawings:
-  persist: false
+  persist: true
 # use UnoCSS
 css: unocss
 ---
