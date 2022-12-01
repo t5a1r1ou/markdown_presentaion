@@ -371,6 +371,34 @@ h1〜h6まで書くことができます。
 
 ---
 
+# リンクテキスト
+
+<div grid="~ cols-2 gap-4">
+<div>
+
+```markdown
+[Google](https://google.com)
+
+```
+</div>
+<div>
+
+[Google](https://google.com)
+
+</div>
+</div>
+
+```html
+<p>
+  <a href="https://google.com" target="_blank" rel="noopener">
+    Google
+  </a>
+</p>
+```
+このように変換されます。
+
+---
+
 # 引用
 
 <div grid="~ cols-2 gap-4">
