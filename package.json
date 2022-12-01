@@ -2,7 +2,7 @@
   "name": "markdown",
   "private": true,
   "scripts": {
-    "build": "slidev build",
+    "build": "slidev build && cpx ./middleware.js ./dist",
     "dev": "slidev --open",
     "start": "npm run dev",
     "export": "slidev export"
